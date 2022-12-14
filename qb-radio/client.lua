@@ -108,14 +108,14 @@ AddEventHandler('esx:setPlayerData', function()
     if exports.ox_inventory:Search('count', 'radio') < 1 and RadioChannel ~= 0 then
         exports['pma-voice']:removePlayerFromRadio()
         RadioChannel = 0
-        ESX.ShowNotification('Du forlod radio kanalen fordi du mistede din radio.')
+        ESX.ShowNotification(Config.messages['no_radio'])
         end
     else
         ESX.TriggerServerCallback('radio:HasRadioItem', function(cb)
             if not cb then
                 exports['pma-voice']:removePlayerFromRadio()
                 RadioChannel = 0
-                ESX.ShowNotification('Du forlod radio kanalen fordi du mistede din radio.')
+                ESX.ShowNotification(Config.messages['no_radio'])
             end
         end)
     end

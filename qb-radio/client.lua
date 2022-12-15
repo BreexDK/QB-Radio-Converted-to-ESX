@@ -104,6 +104,9 @@ RegisterNetEvent('qb-radio:onRadioDrop', function()
 end)
 
 AddEventHandler('esx:setPlayerData', function()
+
+    if not ESX.IsPlayerLoaded() then return end
+
     if Config.OXInventory then
     if exports.ox_inventory:Search('count', 'radio') < 1 and RadioChannel ~= 0 then
         exports['pma-voice']:removePlayerFromRadio()
